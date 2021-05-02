@@ -14,5 +14,5 @@ for i in range(len(a)):
             if idx >= len(a):
                 break
             else:
-                col.image(a.iloc[idx, 0], width=400)
+                col.image(a.iloc[idx, 0], use_column_width=True)
                 idx += 1
