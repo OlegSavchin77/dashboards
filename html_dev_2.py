@@ -31,7 +31,7 @@ filtered = a[a["scans"].str.contains(scan_ID, na=False)]
 
 for i in range(len(filtered)):
     with st.beta_container():
-        for col in st.beta_columns(4):
+        for col in st.beta_columns(5):
             if idx >= len(filtered):
                 break
             else:
