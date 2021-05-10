@@ -11,7 +11,11 @@ a = pd.read_csv('scans_oracle_chan_2.csv')
 folder_name = pd.DataFrame(pd.Series([item[0].split('/')[-2] for item in a.values]).drop_duplicates())
 folder_name.columns=['scans']
 short_name = pd.DataFrame([item[0].split('_IDSS')[-1] for item in folder_name.values])
+<<<<<<< HEAD
 # short_name = folder_name
+=======
+#short_name = folder_name
+>>>>>>> main
 
 print(short_name)
 ### USER CONTORL
