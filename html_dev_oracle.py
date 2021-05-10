@@ -5,13 +5,13 @@ pd.set_option('display.max_colwidth', 1000)
 
 st.set_page_config(page_title="Ex-stream-ly Cool App", page_icon="🧊",layout="wide", initial_sidebar_state="expanded")
 idx = 1
-a = pd.read_csv('scans_oracle.csv')
+a = pd.read_csv('scans_oracle_chan_2.csv')
 
 
 folder_name = pd.DataFrame(pd.Series([item[0].split('/')[-2] for item in a.values]).drop_duplicates())
 folder_name.columns=['scans']
-## short_name = pd.DataFrame([item[0].split('_IDSS')[-1] for item in folder_name.values])
-short_name = folder_name
+short_name = pd.DataFrame([item[0].split('_IDSS')[-1] for item in folder_name.values])
+# short_name = folder_name
 
 print(short_name)
 ### USER CONTORL
