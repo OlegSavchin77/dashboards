@@ -5,7 +5,7 @@ pd.set_option('display.max_colwidth', 1000)
 
 st.set_page_config(page_title="Ex-stream-ly Cool App", page_icon="🧊",layout="wide", initial_sidebar_state="expanded")
 idx = 1
-a = pd.read_csv('scans_oracle_chan_2.csv')
+a = pd.read_csv('/home/olegs/Source/dashboards/scans_oracle_chan_2.csv')
 
 
 folder_name = pd.DataFrame(pd.Series([item[0].split('/')[-2] for item in a.values]).drop_duplicates())
@@ -27,7 +27,14 @@ if st.button('Next Folder'):
     st.write('You selected:', scan_ID)
 
 
+<<<<<<< Updated upstream
 filtered = a[a["scans"].str.contains(scan_ID + "/", na=False)]
+=======
+#print(scan_ID + "/")
+
+filtered = a[a["scans"].str.contains(scan_ID + "/", na=False)]
+print(filtered)
+>>>>>>> Stashed changes
 
 for i in range(len(filtered)):
     with st.beta_container():
