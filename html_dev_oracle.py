@@ -5,11 +5,9 @@ pd.set_option('display.max_colwidth', 1000)
 
 st.set_page_config(page_title="Ex-stream-ly Cool App", page_icon="🧊",layout="wide", initial_sidebar_state="expanded")
 idx = 1
-<<<<<<< HEAD
+
 a = pd.read_csv('/home/olegs/Source/dashboards/scans_oracle_IDSS.csv')
-=======
-a = pd.read_csv('scans_oracle_IDSS.csv')
->>>>>>> main
+
 
 # folder_name = pd.DataFrame(pd.Series([item[0].split('%2F')[-1] for item in a.values]).drop_duplicates())
 # folder_name = pd.DataFrame(pd.Series([item[0].split('/')[-2] for item in folder_name.values]).drop_duplicates())
@@ -40,13 +38,8 @@ if st.button('Next Folder'):
     st.write('You selected:', scan_ID)
 
 #filtered = a[a["scans"].str.contains(scan_ID + "/", na=False)]
-<<<<<<< HEAD
-filtered = a[a["scans"].str.contains(scan_ID, na=False)]
-print(filtered)
-=======
 
 filtered = a[a["scans"].str.contains(scan_ID , na=False)]
->>>>>>> main
 
 for i in range(len(filtered)):
     with st.beta_container():
