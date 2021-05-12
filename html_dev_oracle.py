@@ -31,7 +31,9 @@ if st.button('Next Folder'):
     scan_ID = short_name.get_value(short_name_index[0], 'scan')
     st.write('You selected:', scan_ID)
 
-filtered = a[a["scans"].str.contains(scan_ID + "/", na=False)]
+#filtered = a[a["scans"].str.contains(scan_ID + "/", na=False)]
+
+filtered = a[a["scans"].str.contains(scan_ID , na=False)]
 
 for i in range(len(filtered)):
     with st.beta_container():
