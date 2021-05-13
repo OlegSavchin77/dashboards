@@ -22,13 +22,14 @@ a = pd.read_csv('scans_oracle_IDSS.csv')
 folder_name = pd.DataFrame(pd.Series([item[0].split('%2F')[-1] for item in a.values]).drop_duplicates())
 folder_name = pd.DataFrame(pd.Series([item[0].split('/')[-2] for item in folder_name.values]).drop_duplicates())
 folder_name.columns=['scans']
-short_name = folder_name
+short_name = pd.DataFrame([item[0].split('_IDSS')[-1] for item in folder_name.values])
+
+
 
 ### USER CONTORL
 scan_ID = st.sidebar.selectbox("Please select scan", short_name)
 st.write('You selected:', scan_ID)
 st.sidebar.table(short_name)
-
 
 
 if st.button('Next Folder'):
@@ -39,7 +40,8 @@ if st.button('Next Folder'):
 
 #filtered = a[a["scans"].str.contains(scan_ID + "/", na=False)]
 
-filtered = a[a["scans"].str.contains(scan_ID , na=False)]
+filtered = a[a["scans"].str.contains('/' + scan_ID + '/' , na=False)]
+print(filtered)
 
 for i in range(len(filtered)):
     with st.beta_container():
