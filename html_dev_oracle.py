@@ -6,7 +6,7 @@ pd.set_option('display.max_colwidth', 1000)
 st.set_page_config(page_title="Ex-stream-ly Cool App", page_icon="🧊",layout="wide", initial_sidebar_state="expanded")
 idx = 1
 
-a = pd.read_csv('scans_oracle_IDSS.csv')
+a = pd.read_csv('scans_dubai.csv')
 
 
 # folder_name = pd.DataFrame(pd.Series([item[0].split('%2F')[-1] for item in a.values]).drop_duplicates())
