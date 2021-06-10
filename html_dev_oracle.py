@@ -6,7 +6,11 @@ pd.set_option('display.max_colwidth', 1000)
 st.set_page_config(page_title="Ex-stream-ly Cool App", page_icon="🧊",layout="wide", initial_sidebar_state="expanded")
 idx = 1
 
+<<<<<<< Updated upstream
 a = pd.read_csv('scans_dubai.csv')
+=======
+a = pd.read_csv('/home/olegs/Source/dashboards/scans_oracle_IDSS.csv')
+>>>>>>> Stashed changes
 
 
 # folder_name = pd.DataFrame(pd.Series([item[0].split('%2F')[-1] for item in a.values]).drop_duplicates())
@@ -41,11 +45,12 @@ if st.button('Next Folder'):
 #filtered = a[a["scans"].str.contains(scan_ID + "/", na=False)]
 
 filtered = a[a["scans"].str.contains('/' + scan_ID + '/' , na=False)]
+
 print(filtered)
 
 for i in range(len(filtered)):
     with st.beta_container():
-        for col in st.beta_columns(5):
+        for col in st.beta_columns(8):
             if idx >= len(filtered):
                 break
             else:
