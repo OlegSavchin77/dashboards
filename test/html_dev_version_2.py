@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
-
+import pathlib
 pd.set_option('display.max_colwidth', 1000)
 
 st.set_page_config(page_title="Ex-stream-ly Cool App", page_icon="🧊", layout="wide", initial_sidebar_state="expanded")
@@ -10,12 +10,17 @@ idx = 1
 link = '[Please login to NEXUS ](http://nexus.int.seetrue.ai:8081/repository/data-image-snippets/quality_val_task/20190415_13133500_H_0017640895_IDSS02_1555326681_356/20190415_13133500_H_0017640895_IDSS02_1555326681_356_v5d0_chan1.png)'
 st.markdown(link, unsafe_allow_html=True)
 
+# list sub_directories
+output = [name for name in os.listdir('.') if os.path.isdir(os.path.join('.', name))]
+filtered_output = [dir for dir in output if dir in ['XRAY', 'CT', 'analyze']]
+sub_directories = st.sidebar.selectbox('Select folder', filtered_output)
+
+
 # File Filter
-folder_path = os.getcwd()
-print(folder_path)
-filenames = [f for f in os.listdir(folder_path) if '.csv' in f]
+folder_path = pathlib.Path(__file__).parent.resolve()
+filenames = [f for f in os.listdir(sub_directories) if '.csv' in f]
 selected_filename = st.sidebar.selectbox('Select a file', filenames)
-csv_selected = os.path.join(folder_path, selected_filename)
+csv_selected = os.path.join(sub_directories, selected_filename)
 
 # Data
 a = pd.read_csv(csv_selected)
