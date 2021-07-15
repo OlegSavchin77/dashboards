@@ -11,8 +11,8 @@ link = '[Please login to NEXUS ](http://nexus.int.seetrue.ai:8081/repository/dat
 st.markdown(link, unsafe_allow_html=True)
 
 # File Filter
-folder_path = folder_path = './'
-#folder_path = [f for f in os.listdir('.') if os.path.isfile(f)]
+folder_path = folder_path = '/dashboards/tree/main/test'
+print(folder_path)
 filenames = [f for f in os.listdir(folder_path) if '.csv' in f]
 selected_filename = st.sidebar.selectbox('Select a file', filenames)
 csv_selected = os.path.join(folder_path, selected_filename)
