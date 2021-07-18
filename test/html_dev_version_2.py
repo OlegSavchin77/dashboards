@@ -7,7 +7,7 @@ pd.set_option('display.max_colwidth', 1000)
 st.set_page_config(page_title="Ex-stream-ly Cool App", page_icon="🧊", layout="wide", initial_sidebar_state="expanded")
 idx = 1
 
-link = '[Please login to NEXUS ](http://nexus.int.seetrue.ai:8081/repository/data-image-snippets/quality_val_task/20190415_13133500_H_0017640895_IDSS02_1555326681_356/20190415_13133500_H_0017640895_IDSS02_1555326681_356_v5d0_chan1.png)'
+link = '[Please login to NEXUS ](https://nexus.seetrue.ai/repository/data-image-snippets/welcome_page/welcome.png)'
 st.markdown(link, unsafe_allow_html=True)
 
 # list sub_directories
@@ -41,5 +41,7 @@ for i in range(len(filtered)):
             if idx >= len(filtered):
                 break
             else:
+
                 col.image(filtered.iloc[idx, 0], use_column_width=True)
+                col.code(filtered.iloc[idx, 0].split('/')[-1])
                 idx += 1
